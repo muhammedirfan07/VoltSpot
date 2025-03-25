@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@layer base {
+    :root {
+      --scrollbar-thumb: #000000; /* Light mode thumb color */
+      --scrollbar-track: #000000; /* Light mode track color */
+    }
+  
+    .dark {
+      --scrollbar-thumb: #000000; /* Dark mode thumb color */
+      --scrollbar-track: #000000; /* Dark mode track color */
+    }
+    .windi-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    }
+    .windi-scrollbar::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+  }
