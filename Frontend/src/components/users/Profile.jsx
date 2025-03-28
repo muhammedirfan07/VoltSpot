@@ -51,7 +51,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
+    <div className="min-h-screen  bg-neutral-950">
       {/* Header */}
       <div className="max-w-full font-[Manrope] bg-gradient-to-t from-gray-800 to-black relative mx-auto px-4 py-3 sm:px-6 lg:px-8 flex justify-between items-center">
         <h1 className="text-3xl font-bold text-gray-100">My Account</h1>
@@ -68,7 +68,7 @@ const Profile = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-t from-gray-700 to-black shadow rounded-lg p-6 sticky top-8">
+            <div className=" bg-neutral-900 shadow rounded-lg p-6 sticky top-8">
               <div className="flex flex-col items-center text-center mb-6">
                 <img
                   src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"
@@ -85,7 +85,7 @@ const Profile = () => {
                     <button
                       onClick={() => setActiveTab('profile')}
                       className={`w-full flex items-center p-3 text-left rounded-md ${
-                        activeTab === 'profile' ? 'bg-gray-950 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
+                        activeTab === 'profile' ? 'bg-gray-800 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
                       }`}
                     >
                       <User size={18} className="mr-3" />
@@ -93,22 +93,23 @@ const Profile = () => {
                     </button>
                   </li>
                   {/* payment history */}
-                  <li>
+                  {/* <li>
                     <button
                       onClick={() => setActiveTab('payments')}
                       className={`w-full flex items-center p-3 text-left rounded-md ${
-                        activeTab === 'payments' ? 'bg-gray-950 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
+                        activeTab === 'payments' ? 'bg-gray-800 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
                       }`}
                     >
                       <CreditCard size={18} className="mr-3" />
                       <span>Payment History</span>
                     </button>
-                  </li>
+                  </li> */}
+                  
                   <li>
                     <button
                       onClick={() => setActiveTab('bookings')}
                       className={`w-full flex items-center p-3 text-left rounded-md ${
-                        activeTab === 'bookings' ? 'bg-gray-950 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
+                        activeTab === 'bookings' ? 'bg-gray-800 text-gray-50' : 'text-gray-200 hover:bg-slate-950'
                       }`}
                     >
                       <Calendar size={18} className="mr-3" />

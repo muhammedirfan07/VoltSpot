@@ -5,11 +5,14 @@ import {
   Battery,
   ChevronDown,
   MessageCircle,
+  X,
 } from "lucide-react";
 import station1 from "../../assets/station1.jpg";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import { feachApproveStationAPI, filterStationAPI } from "../../Server/allAPI";
+import SERVER_URL from "../../Server/serverURL";
+
 
 const Home = () => {
   const [isloging, setLoaging] = useState(true);
@@ -20,6 +23,7 @@ const Home = () => {
   const [states, setStates] = useState([]);
   const [searchStation, setSearchStation] = useState("");
   const [suggestions, setSuggestions] = useState([]); //auto suggection
+  const [showMap, setShowMap] = useState(false);
   const [filters, setFilters] = useState({
     city: "",
     state: "",
@@ -177,7 +181,7 @@ const Home = () => {
                 </select>
               </div>
 
-              <div className="min-w-[200px] md:min-w-0 space-y-2">
+              <div className="min-w-[200px]  md:min-w-0 space-y-2">
                 <label className="block text-gray-300 text-sm mb-1">
                   Socket Type
                 </label>
@@ -239,10 +243,35 @@ const Home = () => {
               <h1 className="text-xl font-[Manrope] md:text-2xl font-bold text-white">
                 Explore EV Charging station in India
               </h1>
-              <button disabled  className="w-full md:w-auto bg-emerald-800 text-white px-4 py-2 rounded-2xl cursor-not-allowed hover:bg-emerald-600">
-                Explore Map
+              <button 
+                onClick={() => setShowMap(!showMap)}
+                className="w-full md:w-auto bg-emerald-800 text-white px-4 py-2 rounded-2xl hover:bg-emerald-600"
+              >
+                {showMap ? "Hide Map" : "Explore Map"}
               </button>
             </div>
+
+            {/* Map View - Conditionally rendered */}
+            {showMap && (
+              <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowMap(false)}
+                    className="absolute top-2 right-2 z-10 bg-black bg-opacity-50 text-white p-1 rounded-full hover:bg-opacity-75"
+                  >
+                    <X size={20} />
+                  </button>
+                  <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1ZJAUHIjyykkJtqurWZ8SlSCZrBENF7g&ehbc=2E312F" 
+                    width="100%" 
+                    height="480"
+                    className="border-0"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            )}
 
             {/* Search */}
             <div className="mb-8">
@@ -294,14 +323,14 @@ const Home = () => {
                   viewStations.map((station) => (
                     <div
                       key={station?._id}
-                      class="mx-auto max-w-lg overflow-hidden rounded-xl bg-neutral-900 shadow-md md:max-w-2xl transition duration-300  delay-150 hover:-translate-y-1 hover:scale-105  ease-in-out"
+                      class="mx-auto  max-w-lg overflow-hidden rounded-xl bg-neutral-900 shadow-md md:max-w-2xl transition duration-300  delay-150 hover:-translate-y-1 hover:scale-105  ease-in-out"
                     >
                       <div class="md:flex">
                         <div class="md:shrink-0">
                           <img
-                            class="h-60 w-full object-cover md:h-full md:w-60"
-                            src={station1}
-                            alt="Modern building architecture"
+                            class="h-50 w-full object-cover md:h-[260px] md:w-60"
+                            src={`${SERVER_URL}/${station?.image}`}
+                            alt="image not get"
                           />
                         </div>
                         <div class="p-4  w-100 ">
@@ -345,9 +374,14 @@ const Home = () => {
                               ₹{station?.pricePerHour}
                             </span>
                           </div>
+                          <div className="flex flex-row items-center mb-2">
+                            <a href={station?.mapUrl} target="_blank" className="text-[12px] text-fuchsia-400 items-end flex me-1 ">
+                              <MapPin className=" text-[10px]"/>location
+                            </a>
+                          </div>
                           <div className="flex justify-end">
                             <Link to={`/${station?._id}/view`}>
-                              <button className=" bg-emerald-700 p-1 w-25 text-amber-50 rounded-lg">
+                              <button className=" bg-emerald-700 cursor-pointer hover:bg-emerald-600  p-1 w-25 text-amber-50 rounded-lg">
                                 {" "}
                                 Booking{" "}
                               </button>
