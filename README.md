@@ -21,3 +21,5 @@ The technology used to develop Votspot includes:
 - **Toolkits:** Socket.io, Nodemailer, Google Maps
 - **Backend:** Node.js, Express, MongoDB
   
+![Screenshot 2025-03-29 230750](https://github.com/user-attachments/assets/75676ed3-8991-413f-b8a4-941943fcd025)
+
