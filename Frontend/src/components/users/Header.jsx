@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {  useNavigate } from 'react-router-dom';
-import { Link } from "react-scroll";
+import { Button, Link } from "react-scroll";
 
 const Header = ({isloging}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const Header = ({isloging}) => {
   };
 
   return (
-    <nav className="w-full z-40 backdrop-blur-lg text-white fixed top-0 left-0 font-manrope">
+    <nav className="w-full z-40 font-[DM_Sans] backdrop-blur-lg text-white fixed top-0 left-0 font-manrope">
       <div className="mx-auto px-10 py-4 flex items-center justify-between">
         
         {/* Logo */}
@@ -35,6 +35,7 @@ const Header = ({isloging}) => {
             <>
               <Link to="home" smooth={true} duration={500} className="hover:text-green-400">Home</Link>
               <Link to="about" smooth={true} duration={500} className="hover:text-green-300">About</Link>
+              <button  onClick={()=>{navigate("/homecolab")}} smooth={true} duration={500} className="hover:text-green-300">Patners</button>
               <Link to="features" smooth={true} duration={500} className="hover:text-green-300">features</Link>
               <Link to="support" smooth={true} duration={500} className="hover:text-green-300">support</Link>
                 <button onClick={()=>{navigate("/login")}} className="bg-emerald-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-green-600 transition w-25">
@@ -73,6 +74,7 @@ const Header = ({isloging}) => {
               <>
               <Link to="home" smooth={true} duration={500} className="hover:text-green-400">Home</Link>
               <Link to="about" smooth={true} duration={500} className="hover:text-green-300">About</Link>
+              <button onClick={()=>{navigate("/homecolab")}}smooth={true} duration={500} className="hover:text-green-300">Patners</button>
               <Link to="features" smooth={true} duration={500} className="hover:text-green-300">features</Link>
               <Link to="support" smooth={true} duration={500} className="hover:text-green-300">support</Link>
                   <button onClick={()=>{navigate("/login")}} className="w-full bg-emerald-600 text-white py-2 font-semibold rounded-lg hover:bg-green-600 transition">
