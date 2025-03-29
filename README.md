@@ -23,3 +23,6 @@ The technology used to develop Votspot includes:
   
 ![Screenshot 2025-03-29 230750](https://github.com/user-attachments/assets/75676ed3-8991-413f-b8a4-941943fcd025)
 
+![Screenshot 2025-03-29 230842](https://github.com/user-attachments/assets/0e9923bf-0202-48bd-a07e-bfa6c72907c3)
+
+![Screenshot 2025-03-29 230935](https://github.com/user-attachments/assets/d28d207c-976f-44bf-b03a-fccc4be020c3)
